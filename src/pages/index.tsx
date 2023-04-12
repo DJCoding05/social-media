@@ -3,15 +3,12 @@ import Head from "next/head";
 // import { api } from "~/utils/api";
 import { SignedIn, SignedOut, SignOutButton, useUser } from "@clerk/nextjs";
 import ComplexNavbar from "~/utils/NavBar";
-import { useRouter } from "next/router";
-import { redirect } from "next/dist/server/api-utils";
+import Link from "next/link";
 
 
 const Home: NextPage = () => {
   //const hello = api.example.hello.useQuery({ text: "from tRPC" });
   const { user } = useUser();  
-  const { push } = useRouter();
-  //from-[#2e026d] to-[#15162c]
   return (
     <>
       <Head>
@@ -36,7 +33,7 @@ const Home: NextPage = () => {
             <h2 className="card-title">Please Sign in</h2>
             <p>By Clicking the button below</p>
             <div className="card-actions justify-end">
-              <button className="font-semibold font-sans btn btn-primary" onClick={() => redirect("/sign-in/", 200)}>Sign In</button>
+              <Link href="/sign-in" className="text-white font-semibold">Sign In</Link>
             </div>
           </div>
         </div>

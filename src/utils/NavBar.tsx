@@ -1,4 +1,5 @@
-import { SignInButton, useUser, SignOutButton, SignUpButton } from "@clerk/nextjs";
+import { SignInButton, useUser, SignOutButton, SignUpButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import Link from "next/link";
 import { Router, useRouter } from "next/router";
 
 export default function NavBar() {
@@ -23,7 +24,14 @@ export default function NavBar() {
     <a className="btn btn-ghost normal-case text-xl">Quacker</a>
   </div>
   <div className="navbar-end">
-    <h1 className='font-bold'>{isSignedIn ? <SignOutButton /> : <button onClick={() => push('/sign-in/')}>Sign In</button>}</h1>
+    <h1 className='font-bold'>
+        <SignedIn>
+            <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+            <SignInButton />
+        </SignedOut>
+    </h1>
   </div>
 </div>
   )
