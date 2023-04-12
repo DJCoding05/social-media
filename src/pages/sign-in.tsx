@@ -1,8 +1,8 @@
-import { SignIn, SignOutButton, SignUp, useUser } from "@clerk/nextjs";
+import { SignIn, SignOutButton, useUser } from "@clerk/nextjs";
 import NavBar from "~/utils/NavBar";
 
 export default function SignInPage() {
-  const { isLoaded, isSignedIn, user } = useUser();
+  const { isSignedIn } = useUser();
 
   return (
     <>

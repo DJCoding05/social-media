@@ -1,14 +1,14 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import { api } from "~/utils/api";
-import { SignedIn, SignedOut, SignInButton, SignOutButton, useUser, SignIn } from "@clerk/nextjs";
+// import { api } from "~/utils/api";
+import { SignedIn, SignedOut, SignOutButton, useUser } from "@clerk/nextjs";
 import ComplexNavbar from "~/utils/NavBar";
 import { useRouter } from "next/router";
 
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  const { isLoaded, isSignedIn, user } = useUser();  
+  //const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const { user } = useUser();  
   const { push } = useRouter();
   //from-[#2e026d] to-[#15162c]
   return (
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
             <h2 className="card-title">Please Sign in</h2>
             <p>By Clicking the button below</p>
             <div className="card-actions justify-end">
-              <button className=" font-semibold font-sans btn btn-primary" onClick={() => push('/sign-in/')}>Sign In</button>
+              <button className="font-semibold font-sans btn btn-primary" onClick={() => push('/sign-in/')}>Sign In</button>
             </div>
           </div>
         </div>
